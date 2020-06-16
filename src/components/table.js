@@ -4,7 +4,9 @@ export default {
     i18nView: {
       tableDate: '日期',
       tableName: '姓名',
-      tableAddress: '地址'
+      tableAddress: '地址',
+      startTime: '开始日期',
+      endTime: '结束日期'
     }
 
   },
@@ -12,7 +14,9 @@ export default {
     i18nView: {
       tableDate: 'tableDate',
       tableName: 'tableName',
-      tableAddress: 'tableAddress'
+      tableAddress: 'tableAddress',
+      startTime: 'startTime',
+      endTime: 'endTime'
     }
   }
 }

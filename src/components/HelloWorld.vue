@@ -37,8 +37,8 @@
       v-model="value1"
       type="daterange"
       range-separator="至"
-      start-placeholder="开始日期"
-      end-placeholder="结束日期"
+      :start-placeholder="$t('i18nView.startTime')"
+      :end-placeholder="$t('i18nView.endTime')"
     >
     </el-date-picker>
   </div>
