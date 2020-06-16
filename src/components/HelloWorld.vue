@@ -1,10 +1,10 @@
 <template>
   <div class="music-heard">
     <div class="music-heard-top">
-      <div>{{generateTitle(contentData[0].value)}}</div>
+      <div>{{ generateTitle(contentData[0].value) }}</div>
       <ul class="top-detail">
         <li v-for="(item, index) in contentData" :key="index">
-           {{generateTitle(item.value)}}
+          {{ generateTitle(item.value) }}
         </li>
         <li>
           <el-radio-group v-model="radio" @change="radioChange">
@@ -16,31 +16,30 @@
     </div>
     <div class="music-heard-bottom"></div>
     <div>
-      <el-table
-      :data="resultData"
-      style="width: 100%">
+      <el-table :data="resultData" style="width: 100%">
         <el-table-column
           prop="date"
           :label="$t('i18nView.tableDate')"
-          width="280">
+          width="280"
+        >
         </el-table-column>
         <el-table-column
           prop="name"
           :label="$t('i18nView.tableName')"
-          width="280">
+          width="280"
+        >
         </el-table-column>
-        <el-table-column
-          prop="address"
-          :label="$t('i18nView.tableAddress')">
+        <el-table-column prop="address" :label="$t('i18nView.tableAddress')">
         </el-table-column>
       </el-table>
     </div>
-     <el-date-picker
+    <el-date-picker
       v-model="value1"
       type="daterange"
       range-separator="至"
       start-placeholder="开始日期"
-      end-placeholder="结束日期">
+      end-placeholder="结束日期"
+    >
     </el-date-picker>
   </div>
 </template>
@@ -61,23 +60,28 @@ export default {
       value1: '',
       radio: 'zh',
       resultData: [],
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }],
+      tableData: [
+        {
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        },
+        {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        },
+        {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄'
+        },
+        {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }
+      ],
       contentData: [
         {
           value: 'music'
@@ -95,26 +99,28 @@ export default {
           value: 'musician'
         }
       ],
-      tableData1: [{
-        date: '2016-05-03',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
-      },
-      {
-        date: '2016-05-02',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
-      },
-      {
-        date: '2016-05-04',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
-      },
-      {
-        date: '2016-05-01',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
-      }]
+      tableData1: [
+        {
+          date: '2016-05-03',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles'
+        },
+        {
+          date: '2016-05-02',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles'
+        },
+        {
+          date: '2016-05-04',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles'
+        },
+        {
+          date: '2016-05-01',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles'
+        }
+      ]
     }
   },
   methods: {
@@ -152,7 +158,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-@import './base.css';
+@import "./base.css";
 .compatible(@params, @value) {
   -webkit-@{params}: @value;
   -moz-@{params}: @value;
@@ -176,7 +182,7 @@ export default {
     background-color: #242424;
     .styleDisplay();
     .compatible(align-items, center);
-    >div {
+    > div {
       width: 20%;
       font-size: 2vw;
     }
