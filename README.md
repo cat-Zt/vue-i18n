@@ -1,5 +1,7 @@
 # vue-language
 
+## Vue i18n 的使用,与element ui 的国际化demo
+
 ## Project setup
 ```
 npm install
