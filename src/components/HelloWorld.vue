@@ -17,21 +17,21 @@
     <div class="music-heard-bottom"></div>
     <div>
       <el-table
-      :data="tableData"
+      :data="resultData"
       style="width: 100%">
         <el-table-column
           prop="date"
-          label="日期"
+          :label="$t('i18nView.tableDate')"
           width="280">
         </el-table-column>
         <el-table-column
           prop="name"
-          label="姓名"
+          :label="$t('i18nView.tableName')"
           width="280">
         </el-table-column>
         <el-table-column
           prop="address"
-          label="地址">
+          :label="$t('i18nView.tableAddress')">
         </el-table-column>
       </el-table>
     </div>
@@ -49,6 +49,8 @@
 /** eslint disable */
 import { generateTitle } from '@/utils/i18n'
 import Cookies from 'js-cookie'
+import tablelocale from './table'
+const viewName = 'i18nView'
 export default {
   name: 'HelloWorld',
   props: {
@@ -58,6 +60,7 @@ export default {
     return {
       value1: '',
       radio: 'zh',
+      resultData: [],
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',
@@ -91,23 +94,58 @@ export default {
         {
           value: 'musician'
         }
-      ]
+      ],
+      tableData1: [{
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles'
+      },
+      {
+        date: '2016-05-02',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles'
+      },
+      {
+        date: '2016-05-04',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles'
+      },
+      {
+        date: '2016-05-01',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles'
+      }]
     }
   },
   methods: {
     generateTitle,
     radioChange (data) {
-      console.log('this.$i18n', this.$i18n, this.radio, 'data', data)
+      // console.log('this.$i18n', this.$i18n, this.radio, 'data', data)
       Cookies.set('language', data)
       this.$i18n.locale = data
       this.$message.success('系统语言切换成功！')
     },
     setcookie () {
       Cookies.set('language', 'zh')
+      this.resultData = this.tableData
     }
   },
   created () {
     this.setcookie()
+    if (!this.$i18n.getLocaleMessage('en')[viewName]) {
+      this.$i18n.mergeLocaleMessage('en', tablelocale.en)
+      this.$i18n.mergeLocaleMessage('zh', tablelocale.zh)
+    }
+  },
+  watch: {
+    radio (newval) {
+      console.log(newval)
+      if (newval === 'zh') {
+        this.resultData = this.tableData
+      } else {
+        this.resultData = this.tableData1
+      }
+    }
   }
 }
 </script>
